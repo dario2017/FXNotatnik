@@ -46,17 +46,14 @@ public class SampleController {
 	private Button resetujBtn;
 	
 	
-	public void zapisz(ActionEvent event) {
-		System.out.println("dziala");
-	}
+//	public void zapisz(ActionEvent event) {
+//	}
 	
 	
 	public void initialize() {
-		System.out.println("dziala");
 		
 		zapiszBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e) {
-				System.out.println("zapisuje");
 				try {
 					String czasZapisu = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
 					if (tytulPole.getText().isEmpty()) {	
@@ -64,7 +61,6 @@ public class SampleController {
 					}
 					String nazwaPliku = tytulPole.getText() + ".txt";
 					String sciezkaPliku = "C:/Users/dd/Desktop/Java pliki/Notatnik/" + nazwaPliku;
-					System.out.println(sciezkaPliku);
 					BufferedWriter bw = new BufferedWriter(new FileWriter(sciezkaPliku));
 					bw.write(trescPole.getText());
 					bw.close();
@@ -76,7 +72,6 @@ public class SampleController {
 		
 		wczytajBtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e) {
-				System.out.println("wczytywanie?");
 				FileChooser fc = new FileChooser();
 //				File miejscePliku = new File("C:/Users/dd/Desktop/Java pliki/Notatnik/cos");
 //				fc.setInitialDirectory(miejscePliku);
@@ -96,7 +91,6 @@ public class SampleController {
 						}
 					}
 					String nazwaPliku = selectedFile.getName();
-					System.out.println(nazwaPliku);
 					String czasAktualny = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
 					tytulPole.setText(nazwaPliku + " - wczytano: " + czasAktualny + ".txt");
 					trescPole.setText(tekstZPliku);
